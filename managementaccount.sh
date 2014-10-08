@@ -9,4 +9,4 @@
 
 
 value=$(curl -s -u user:password https://companyjss:8443/JSSResource/computers/macaddress/$(networksetup -getmacaddress en0 | awk '{print $3}' | sed 's/:/./g') | xpath "//computer/general/remote_management/management_username[1]" | sed -e 's/<management_username>//;s/<\/management_username>//')
-echo $value
+echo "<result>$value</result>"
